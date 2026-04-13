@@ -42,7 +42,7 @@ def handler(event: dict, context) -> dict:
     sender_email = 'vyatkalux@yandex.ru'
     recipient_email = 'vyatkalux@yandex.ru'
 
-    subject = f'Новая заявка с сайта ИЗМЕЛЬЧПРОМ — {name}'
+    subject = f'Новая заявка с сайта RUBITEL — {name}'
 
     html_body = f"""
     <html>
@@ -50,7 +50,7 @@ def handler(event: dict, context) -> dict:
       <div style="max-width: 560px; margin: 0 auto; background: #fff; border-radius: 4px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
         <div style="background: #111; padding: 24px 32px; border-top: 4px solid #fbb034;">
           <h1 style="margin: 0; color: #fbb034; font-size: 20px; letter-spacing: 2px; text-transform: uppercase;">
-            ИЗМЕЛЬЧПРОМ
+            RUBITEL
           </h1>
           <p style="margin: 4px 0 0; color: #888; font-size: 11px; letter-spacing: 1px; text-transform: uppercase;">
             Новая заявка с сайта
@@ -70,7 +70,7 @@ def handler(event: dict, context) -> dict:
           </table>
         </div>
         <div style="background: #f9f9f9; padding: 16px 32px; border-top: 1px solid #eee;">
-          <p style="margin: 0; color: #aaa; font-size: 12px;">Заявка отправлена с сайта ИЗМЕЛЬЧПРОМ</p>
+          <p style="margin: 0; color: #aaa; font-size: 12px;">Заявка отправлена с сайта RUBITEL</p>
         </div>
       </div>
     </body>

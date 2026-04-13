@@ -292,7 +292,7 @@ export default function Index() {
               <Icon name="Cog" size={20} className="text-black" />
             </div>
             <div>
-              <div className="font-oswald text-lg font-bold text-foreground tracking-wider leading-none">ИЗМЕЛЬЧПРОМ</div>
+              <div className="font-oswald text-lg font-bold text-foreground tracking-wider leading-none">RUBITEL</div>
               <div className="text-[10px] text-muted-foreground font-mono tracking-[0.2em]">INDUSTRIAL EQUIPMENT</div>
             </div>
           </div>
@@ -840,7 +840,7 @@ export default function Index() {
                 <Icon name="Cog" size={16} className="text-black" />
               </div>
               <div>
-                <div className="font-oswald text-base font-bold text-foreground tracking-wider">ИЗМЕЛЬЧПРОМ</div>
+                <div className="font-oswald text-base font-bold text-foreground tracking-wider">RUBITEL</div>
                 <div className="text-[10px] text-muted-foreground font-mono tracking-[0.2em]">INDUSTRIAL EQUIPMENT</div>
               </div>
             </div>
@@ -857,7 +857,7 @@ export default function Index() {
             </div>
           </div>
           <div className="border-t border-border pt-6 flex flex-col md:flex-row items-center justify-between gap-4">
-            <div className="text-xs text-muted-foreground/60 font-mono">© 2009–2026 ИЗМЕЛЬЧПРОМ. Все права защищены.</div>
+            <div className="text-xs text-muted-foreground/60 font-mono">© 2009–2026 RUBITEL. Все права защищены.</div>
             <div className="flex gap-6 text-xs text-muted-foreground/60 font-mono">
               <span className="cursor-pointer hover:text-warning transition-colors">Политика конфиденциальности</span>
               <span className="cursor-pointer hover:text-warning transition-colors">Оферта</span>
