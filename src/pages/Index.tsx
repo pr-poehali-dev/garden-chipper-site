@@ -399,7 +399,7 @@ export default function Index() {
             {PRODUCTS.map((p) => (
               <div key={p.id} className="group bg-iron border border-border hover:border-warning/50 transition-all duration-300 flex flex-col">
                 <div className="relative bg-steel/40 h-48 steel-texture flex items-center justify-center overflow-hidden">
-                  <img src="https://cdn.poehali.dev/projects/30589419-8040-421a-8f96-70e5f7c9160c/bucket/41d29d22-0695-4907-b28c-14ffb2c16e68.png" alt="Rubitel" className="w-20 h-20 object-contain opacity-20 group-hover:opacity-30 transition-opacity" style={{ filter: 'invert(78%) sepia(60%) saturate(1000%) hue-rotate(350deg) brightness(100%) contrast(95%)' }} />
+                  <Icon name="Cog" size={80} className="text-border group-hover:text-steel transition-colors" />
                   <div className={`absolute top-4 left-0 px-3 py-1 text-xs font-oswald font-bold tracking-wider ${p.tagColor}`}>{p.tag}</div>
                 </div>
                 <div className="p-6 flex flex-col flex-1">
