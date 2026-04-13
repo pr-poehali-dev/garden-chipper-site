@@ -174,7 +174,7 @@ export default function ReviewsSection({ scrollTo }: ReviewsSectionProps) {
               {[
                 { icon: "Phone", label: "Телефон отдела продаж", val: "+7 (912) 333-32-25", sub: "Бесплатно по России, Пн–Пт 8–18" },
                 { icon: "Mail", label: "Email", val: "vyatkalux@yandex.ru", sub: "Ответ в течение 2 часов" },
-                { icon: "MapPin", label: "Офис и производство", val: "г. Тверь, ул. Промышленная, 42", sub: "Заезд по предварительной договорённости" },
+                { icon: "MapPin", label: "Офис и производство", val: "г. Киров (обл), п. Торфяной, ул. Транспортная, 13б", sub: "Заезд по предварительной договорённости" },
                 { icon: "MessageCircle", label: "WhatsApp / Telegram", val: "+7 (912) 333-32-25", sub: "Быстрые ответы в мессенджерах" },
               ].map((c) => (
                 <div key={c.label} className="flex items-start gap-4">
