@@ -62,7 +62,13 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
-				}
+				},
+				steel: '#2e3338',
+				rust: '#a86828',
+				warning: '#d28333',
+				chrome: '#b8936a',
+				iron: '#1a1a1a',
+				coal: '#111111',
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
