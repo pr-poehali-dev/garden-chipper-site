@@ -59,7 +59,7 @@ export default function HeroSection({ scrollTo }: HeroSectionProps) {
               <div key={p.id} className="group bg-iron border border-border hover:border-warning/50 transition-all duration-300 flex flex-col">
                 <div className="relative bg-steel/40 h-48 steel-texture flex items-center justify-center overflow-hidden">
                   {p.image
-                    ? <img src={p.image} alt={p.name} className="absolute inset-0 w-full h-full object-cover" />
+                    ? <img src={p.image} alt={p.name} className="absolute inset-0 w-full h-full object-contain" />
                     : <Icon name="Cog" size={80} className="text-border group-hover:text-steel transition-colors" />
                   }
                   <div className={`absolute top-4 left-0 px-3 py-1 text-xs font-oswald font-bold tracking-wider z-10 ${p.tagColor}`}>{p.tag}</div>
