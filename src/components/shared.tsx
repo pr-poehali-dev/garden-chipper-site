@@ -30,6 +30,7 @@ export const PRODUCTS = [
     tag: "ХИТ",
     tagColor: "bg-warning text-black",
     videoUrl: "https://rutube.ru/video/594cefcea706a939d8095ebd07d20e3c/",
+    videoUrl2: "https://youtube.com/watch?v=r2s1Y8QbDt8",
     images: [
       "https://cdn.poehali.dev/projects/30589419-8040-421a-8f96-70e5f7c9160c/bucket/d747d096-586a-444c-9442-5b78dcc4f963.jpeg",
       "https://cdn.poehali.dev/projects/30589419-8040-421a-8f96-70e5f7c9160c/bucket/f7e91cd7-a26e-4c07-bacf-8f611c2bce2d.jpg",
