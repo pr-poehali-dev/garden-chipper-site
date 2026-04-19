@@ -119,6 +119,7 @@ export const REVIEWS = [
       "https://cdn.poehali.dev/projects/30589419-8040-421a-8f96-70e5f7c9160c/bucket/1f96f7e3-907c-4582-83db-ce76dbb092ec.png",
       "https://cdn.poehali.dev/projects/30589419-8040-421a-8f96-70e5f7c9160c/bucket/d0ec39fc-b22e-4289-acf5-6c430a746a4c.png",
       "https://cdn.poehali.dev/projects/30589419-8040-421a-8f96-70e5f7c9160c/bucket/4bd4d37e-cdcb-47ed-80e2-dfa2a76acf97.png",
+      "https://cdn.poehali.dev/projects/30589419-8040-421a-8f96-70e5f7c9160c/bucket/7deaa25f-221e-4669-95e5-c179acc043ef.jpg",
     ],
   },
   {
