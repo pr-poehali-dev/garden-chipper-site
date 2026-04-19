@@ -12,10 +12,10 @@ export const NAV_ITEMS = [
   { id: "catalog", label: "Каталог" },
   { id: "parts", label: "Запчасти" },
   { id: "consumables", label: "Расходники" },
-  { id: "about", label: "О компании" },
+  { id: "about", label: "О нас" },
   { id: "delivery", label: "Доставка" },
   { id: "contacts", label: "Контакты" },
-  { id: "warranty", label: "Гарантия" },
+  { id: "articles", label: "Статьи" },
 ];
 
 export const PRODUCTS = [
