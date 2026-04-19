@@ -62,7 +62,7 @@ export const PRODUCTS = [
     id: 3,
     name: "RUBITEL-E2",
     desc: "Садовый дисковый измельчитель веток диаметром до 60 мм",
-    power: "7 л.с.",
+    power: "2.2 кВт",
     capacity: "до 0.5 м³/ч",
     weight: "54 кг",
     price: "45 000 ₽",
