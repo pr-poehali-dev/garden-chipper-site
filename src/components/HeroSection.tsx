@@ -37,13 +37,7 @@ export default function HeroSection({ scrollTo }: HeroSectionProps) {
                 <Icon name="ChevronRight" size={18} />
                 Смотреть каталог
               </button>
-              <button
-                onClick={() => scrollTo("contacts")}
-                className="flex items-center justify-center gap-2 border border-chrome/40 text-chrome px-8 py-4 font-oswald font-bold text-base tracking-wider uppercase hover:border-warning hover:text-warning transition-all"
-              >
-                <Icon name="MessageSquare" size={18} />
-                Получить КП
-              </button>
+
             </div>
             <div className="animate-fade-in-up delay-400 mt-14 flex flex-wrap gap-8">
               {[
