@@ -32,7 +32,7 @@ export default function HeroSection({ scrollTo }: HeroSectionProps) {
             <div className="animate-fade-in-up delay-300 flex flex-col sm:flex-row gap-4">
               <button
                 onClick={() => scrollTo("catalog")}
-                className="flex items-center justify-center gap-2 bg-warning text-black px-8 py-4 font-oswald font-bold text-base tracking-wider uppercase hover:bg-amber-400 transition-all hover:shadow-lg hover:shadow-warning/20"
+                className="flex items-center justify-center gap-2 bg-warning/80 text-black px-8 py-4 font-oswald font-bold text-base tracking-wider uppercase hover:bg-warning transition-all hover:shadow-lg hover:shadow-warning/20"
               >
                 <Icon name="ChevronRight" size={18} />
                 Смотреть каталог
