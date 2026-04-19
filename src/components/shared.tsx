@@ -68,6 +68,13 @@ export const PRODUCTS = [
     price: "45 000 ₽",
     tag: "PRO",
     tagColor: "bg-steel text-chrome",
+    images: [
+      "https://cdn.poehali.dev/projects/30589419-8040-421a-8f96-70e5f7c9160c/bucket/4ea67fca-6a6a-4c0f-927f-979bbbbc9c6e.JPG",
+      "https://cdn.poehali.dev/projects/30589419-8040-421a-8f96-70e5f7c9160c/bucket/b1b89311-5e56-49aa-8100-aa9dcc30fdd2.JPG",
+      "https://cdn.poehali.dev/projects/30589419-8040-421a-8f96-70e5f7c9160c/bucket/15a02b77-5475-4be9-8659-ccfa4370a385.JPG",
+      "https://cdn.poehali.dev/projects/30589419-8040-421a-8f96-70e5f7c9160c/bucket/1fb4fb69-5bf7-430a-8dcc-611702f925ba.JPG",
+      "https://cdn.poehali.dev/projects/30589419-8040-421a-8f96-70e5f7c9160c/bucket/2cb00263-a375-4620-8943-d96647f6fd4e.JPG",
+    ],
   },
 ];
 
