@@ -130,15 +130,26 @@ export default function HeroSection({ scrollTo }: HeroSectionProps) {
         <div className="absolute inset-0 bg-black/40" />
         <div className="absolute top-0 left-0 right-0 h-1 bg-warning" />
 
-        <a
-          href="https://youtube.com/@vyatkalux"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="absolute top-6 right-6 z-30 flex items-center gap-2 bg-red-600 hover:bg-red-500 text-white font-oswald text-sm tracking-wider uppercase px-4 py-2.5 rounded transition-colors shadow-lg"
-        >
-          <Icon name="Youtube" size={18} />
-          YouTube канал
-        </a>
+        <div className="absolute top-6 right-6 z-30 flex flex-col gap-2">
+          <a
+            href="https://youtube.com/@vyatkalux"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 bg-red-600 hover:bg-red-500 text-white font-oswald text-sm tracking-wider uppercase px-4 py-2.5 rounded transition-colors shadow-lg"
+          >
+            <Icon name="Youtube" size={18} />
+            YouTube
+          </a>
+          <a
+            href="https://rutube.ru/channel/27535132/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 bg-green-700 hover:bg-green-600 text-white font-oswald text-sm tracking-wider uppercase px-4 py-2.5 rounded transition-colors shadow-lg"
+          >
+            <Icon name="Play" size={18} />
+            Rutube
+          </a>
+        </div>
 
         <div className="relative z-20 max-w-7xl mx-auto px-4 py-20">
           <div className="max-w-2xl">
