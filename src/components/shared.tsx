@@ -109,6 +109,16 @@ export const PARTS = [
 
 export const REVIEWS = [
   {
+    author: "Антон",
+    company: "Авито",
+    rating: 5,
+    text: "Все хорошо.",
+    date: "14 апреля 2025",
+    images: [
+      "https://cdn.poehali.dev/projects/30589419-8040-421a-8f96-70e5f7c9160c/bucket/0625aaf2-48fa-4c13-ab8a-f986a25f7e57.jpg",
+    ],
+  },
+  {
     author: "Андрей Ковалев",
     company: "Авито",
     rating: 5,
