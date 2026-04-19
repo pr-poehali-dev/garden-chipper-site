@@ -22,8 +22,8 @@ function ReviewCard({ r }: { r: typeof REVIEWS[0] }) {
   return (
     <div className="bg-coal border border-border hover:border-warning/30 transition-colors flex flex-col">
       {images.length > 0 && (
-        <div className="relative h-44 overflow-hidden bg-steel/10">
-          <img src={images[imgIdx]} alt="фото отзыва" className="absolute inset-0 w-full h-full object-cover" />
+        <div className="relative h-56 overflow-hidden bg-steel/20">
+          <img src={images[imgIdx]} alt="фото отзыва" className="absolute inset-0 w-full h-full object-contain p-1" />
           {images.length > 1 && (
             <>
               <button onClick={() => setImgIdx((imgIdx - 1 + images.length) % images.length)} className="absolute left-1 top-1/2 -translate-y-1/2 z-10 bg-black/50 hover:bg-black/70 text-white w-6 h-6 flex items-center justify-center">
