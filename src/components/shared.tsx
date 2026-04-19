@@ -21,8 +21,8 @@ export const NAV_ITEMS = [
 export const PRODUCTS = [
   {
     id: 1,
-    name: "RUBITEL Садовый",
-    desc: "Дисковый измельчитель веток диаметром до 60 мм",
+    name: "RUBITEL-S",
+    desc: "Садовый дисковый измельчитель веток диаметром до 60 мм",
     power: "7 л.с.",
     capacity: "до 0.5 м³/ч",
     weight: "54 кг",
