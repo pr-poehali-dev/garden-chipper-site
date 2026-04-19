@@ -29,16 +29,7 @@ export default function HeroSection({ scrollTo }: HeroSectionProps) {
             <p className="animate-fade-in-up delay-200 text-chrome text-lg leading-relaxed mb-10 max-w-lg font-plex">
               Промышленные измельчители российского производства. Надёжность, подтверждённая тысячами часов работы на реальных производствах.
             </p>
-            <div className="animate-fade-in-up delay-300 flex flex-col sm:flex-row gap-4">
-              <button
-                onClick={() => scrollTo("catalog")}
-                className="flex items-center justify-center gap-2 bg-warning/55 text-black px-8 py-4 font-oswald font-bold text-base tracking-wider uppercase hover:bg-warning/80 transition-all hover:shadow-lg hover:shadow-warning/20"
-              >
-                <Icon name="ChevronRight" size={18} />
-                Смотреть каталог
-              </button>
 
-            </div>
             <div className="animate-fade-in-up delay-400 mt-14 flex flex-wrap gap-8">
               {[
                 { val: "15+", label: "лет на рынке" },
