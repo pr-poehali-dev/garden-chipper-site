@@ -48,6 +48,12 @@ function ProductCard({ p, scrollTo }: { p: typeof import("@/components/shared").
             </div>
           ))}
         </div>
+        {p.videoUrl && (
+          <a href={p.videoUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-xs text-muted-foreground hover:text-warning font-mono tracking-wider transition-colors mb-4">
+            <Icon name="PlayCircle" size={16} className="text-warning" />
+            Смотреть видео на Rutube
+          </a>
+        )}
         <div className="flex items-center justify-between">
           <div className="font-oswald text-xl font-bold text-foreground">{p.price}</div>
           <button
