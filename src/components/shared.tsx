@@ -70,6 +70,11 @@ export const PRODUCTS = [
     price: "65 000 ₽",
     tag: "НОВИНКА",
     tagColor: "bg-rust text-white",
+    images: [
+      "https://cdn.poehali.dev/projects/30589419-8040-421a-8f96-70e5f7c9160c/bucket/948beedf-6d04-40bb-81e6-7c70c70ccd00.jpeg",
+      "https://cdn.poehali.dev/projects/30589419-8040-421a-8f96-70e5f7c9160c/bucket/abc92367-24ee-415d-8b0a-0b8e581cd2cf.jpeg",
+      "https://cdn.poehali.dev/projects/30589419-8040-421a-8f96-70e5f7c9160c/bucket/8550a2ff-db06-4e3c-aacc-2544970145d8.jpeg",
+    ],
   },
   {
     id: 3,
