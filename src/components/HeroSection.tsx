@@ -49,7 +49,7 @@ export default function HeroSection({ scrollTo }: HeroSectionProps) {
                 { val: "15+", label: "лет на рынке" },
                 { val: "800+", label: "единиц продано" },
                 { val: "98%", label: "клиентов довольны" },
-                { val: "48 ч", label: "сервисный выезд" },
+
               ].map((s) => (
                 <div key={s.label}>
                   <div className="font-oswald text-3xl font-bold text-warning leading-none">{s.val}</div>
