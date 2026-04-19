@@ -33,6 +33,7 @@ export const PRODUCTS = [
   },
   {
     id: 2,
+    image: "https://cdn.poehali.dev/projects/30589419-8040-421a-8f96-70e5f7c9160c/bucket/44fd17fc-c51a-4a33-9e17-1758fd755aad.JPG",
     name: "МРШ-800 TITAN",
     desc: "Молотковая мельница для переработки промышленных отходов и паллет",
     power: "55 кВт",
