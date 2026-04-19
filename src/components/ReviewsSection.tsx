@@ -200,6 +200,35 @@ export default function ReviewsSection({ scrollTo }: ReviewsSectionProps) {
         </div>
       </section>
 
+      {/* ARTICLES */}
+      <section id="articles" className="py-24 bg-coal">
+        <div className="max-w-7xl mx-auto px-4">
+          <SectionLabel>Полезные материалы</SectionLabel>
+          <SectionTitle>Статьи</SectionTitle>
+          <div className="grid md:grid-cols-3 gap-6">
+            {[
+              { icon: "BookOpen", title: "Как выбрать измельчитель веток", desc: "Разбираемся, на что обратить внимание при выборе садового измельчителя: мощность, диаметр веток, тип ножей и производительность." },
+              { icon: "Wrench", title: "Обслуживание и уход за измельчителем", desc: "Простые правила ухода, которые продлят срок службы оборудования и сохранят его в идеальном состоянии на долгие годы." },
+              { icon: "Leaf", title: "Применение щепы в саду и огороде", desc: "Щепа после измельчения — ценный материал для мульчирования, компоста и украшения участка. Узнайте, как её использовать." },
+            ].map((article) => (
+              <div key={article.title} className="bg-iron border border-border hover:border-warning/40 transition-all p-6 flex flex-col gap-4">
+                <div className="w-10 h-10 border border-warning/30 flex items-center justify-center">
+                  <Icon name={article.icon} size={18} className="text-warning" fallback="BookOpen" />
+                </div>
+                <h3 className="font-oswald text-lg font-bold text-foreground uppercase tracking-wide leading-tight">{article.title}</h3>
+                <p className="text-muted-foreground text-sm leading-relaxed font-plex flex-1">{article.desc}</p>
+                <div className="text-xs text-warning/60 font-mono tracking-wider uppercase">Скоро →</div>
+              </div>
+            ))}
+          </div>
+          <div className="mt-12 border border-border border-dashed p-8 text-center">
+            <Icon name="PenLine" size={32} className="text-muted-foreground/40 mx-auto mb-3" />
+            <div className="font-oswald text-lg text-muted-foreground uppercase tracking-wider mb-1">Раздел в разработке</div>
+            <p className="text-sm text-muted-foreground/60 font-plex">Здесь появятся полезные статьи, инструкции и советы по работе с оборудованием.</p>
+          </div>
+        </div>
+      </section>
+
       {/* FOOTER */}
       <footer className="bg-coal border-t border-border py-12">
         <div className="max-w-7xl mx-auto px-4">
