@@ -16,6 +16,57 @@ interface ReviewsSectionProps {
   scrollTo: (id: string) => void;
 }
 
+function ReviewCard({ r }: { r: typeof REVIEWS[0] }) {
+  const images = r.images || [];
+  const [imgIdx, setImgIdx] = useState(0);
+  return (
+    <div className="bg-coal border border-border hover:border-warning/30 transition-colors flex flex-col">
+      {images.length > 0 && (
+        <div className="relative h-44 overflow-hidden bg-steel/10">
+          <img src={images[imgIdx]} alt="фото отзыва" className="absolute inset-0 w-full h-full object-cover" />
+          {images.length > 1 && (
+            <>
+              <button onClick={() => setImgIdx((imgIdx - 1 + images.length) % images.length)} className="absolute left-1 top-1/2 -translate-y-1/2 z-10 bg-black/50 hover:bg-black/70 text-white w-6 h-6 flex items-center justify-center">
+                <Icon name="ChevronLeft" size={14} />
+              </button>
+              <button onClick={() => setImgIdx((imgIdx + 1) % images.length)} className="absolute right-1 top-1/2 -translate-y-1/2 z-10 bg-black/50 hover:bg-black/70 text-white w-6 h-6 flex items-center justify-center">
+                <Icon name="ChevronRight" size={14} />
+              </button>
+              <div className="absolute bottom-1 left-1/2 -translate-x-1/2 flex gap-1">
+                {images.map((_, i) => (
+                  <button key={i} onClick={() => setImgIdx(i)} className={`w-1.5 h-1.5 rounded-full ${i === imgIdx ? "bg-warning" : "bg-white/50"}`} />
+                ))}
+              </div>
+            </>
+          )}
+        </div>
+      )}
+      <div className="p-6 flex flex-col flex-1">
+        <div className="flex items-start justify-between mb-4">
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 bg-steel flex items-center justify-center font-oswald font-bold text-warning text-lg">
+              {r.author[0]}
+            </div>
+            <div>
+              <div className="font-oswald font-bold text-sm text-foreground">{r.author}</div>
+              <div className="text-xs text-muted-foreground font-mono">{r.company}</div>
+            </div>
+          </div>
+          <StarRating rating={r.rating} />
+        </div>
+        <p className="text-muted-foreground text-sm font-plex leading-relaxed mb-4 flex-1">"{r.text}"</p>
+        <div className="flex items-center justify-between">
+          <span className="font-mono text-xs text-muted-foreground/60">{r.date}</span>
+          <div className="flex items-center gap-1 text-xs text-muted-foreground">
+            <Icon name="ThumbsUp" size={11} />
+            Полезно
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function ReviewsSection({ scrollTo }: ReviewsSectionProps) {
   const [activeReviewFilter, setActiveReviewFilter] = useState(0);
 
@@ -75,28 +126,7 @@ export default function ReviewsSection({ scrollTo }: ReviewsSectionProps) {
 
           <div className="grid md:grid-cols-3 gap-5">
             {REVIEWS.map((r) => (
-              <div key={r.author} className="bg-coal border border-border p-6 hover:border-warning/30 transition-colors">
-                <div className="flex items-start justify-between mb-4">
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 bg-steel flex items-center justify-center font-oswald font-bold text-warning text-lg">
-                      {r.author[0]}
-                    </div>
-                    <div>
-                      <div className="font-oswald font-bold text-sm text-foreground">{r.author}</div>
-                      <div className="text-xs text-muted-foreground font-mono">{r.company}</div>
-                    </div>
-                  </div>
-                  <StarRating rating={r.rating} />
-                </div>
-                <p className="text-muted-foreground text-sm font-plex leading-relaxed mb-4">"{r.text}"</p>
-                <div className="flex items-center justify-between">
-                  <span className="font-mono text-xs text-muted-foreground/60">{r.date}</span>
-                  <div className="flex items-center gap-1 text-xs text-muted-foreground">
-                    <Icon name="ThumbsUp" size={11} />
-                    Полезно
-                  </div>
-                </div>
-              </div>
+              <ReviewCard key={r.author} r={r} />
             ))}
           </div>
         </div>
