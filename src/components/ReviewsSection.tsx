@@ -1,4 +1,5 @@
 import { useState } from "react";
+import React from "react";
 import Icon from "@/components/ui/icon";
 import {
   REVIEWS,
@@ -67,11 +68,115 @@ function ReviewCard({ r }: { r: typeof REVIEWS[0] }) {
   );
 }
 
+function ReviewModal({ onClose, onSubmit }: { onClose: () => void; onSubmit: (r: { author: string; rating: number; text: string }) => void }) {
+  const [name, setName] = useState("");
+  const [rating, setRating] = useState(5);
+  const [text, setText] = useState("");
+  const [hovered, setHovered] = useState(0);
+  const [done, setDone] = useState(false);
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!name.trim() || !text.trim()) return;
+    onSubmit({ author: name.trim(), rating, text: text.trim() });
+    setDone(true);
+  };
+
+  return (
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 px-4" onClick={onClose}>
+      <div className="bg-coal border border-border w-full max-w-md p-8 relative" onClick={(e) => e.stopPropagation()}>
+        <button onClick={onClose} className="absolute top-4 right-4 text-muted-foreground hover:text-foreground transition-colors">
+          <Icon name="X" size={20} />
+        </button>
+        {done ? (
+          <div className="text-center py-8">
+            <Icon name="CheckCircle" size={48} className="text-warning mx-auto mb-4" />
+            <div className="font-oswald text-2xl font-bold text-foreground mb-2">Спасибо за отзыв!</div>
+            <div className="text-sm text-muted-foreground font-plex">Ваш отзыв опубликован на сайте.</div>
+          </div>
+        ) : (
+          <>
+            <div className="font-oswald text-2xl font-bold text-foreground mb-6">Оставить отзыв</div>
+            <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+              <div>
+                <label className="text-xs font-mono text-muted-foreground tracking-wider uppercase mb-1.5 block">Ваше имя</label>
+                <input
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  placeholder="Иван Иванов"
+                  required
+                  className="w-full bg-iron border border-border px-4 py-3 text-sm text-foreground font-plex focus:outline-none focus:border-warning/50 transition-colors placeholder:text-muted-foreground/40"
+                />
+              </div>
+              <div>
+                <label className="text-xs font-mono text-muted-foreground tracking-wider uppercase mb-1.5 block">Оценка</label>
+                <div className="flex gap-2">
+                  {[1, 2, 3, 4, 5].map((s) => (
+                    <button
+                      key={s}
+                      type="button"
+                      onMouseEnter={() => setHovered(s)}
+                      onMouseLeave={() => setHovered(0)}
+                      onClick={() => setRating(s)}
+                      className="text-2xl transition-colors"
+                      style={{ color: s <= (hovered || rating) ? "var(--warning, #f59e0b)" : "#555" }}
+                    >
+                      ★
+                    </button>
+                  ))}
+                </div>
+              </div>
+              <div>
+                <label className="text-xs font-mono text-muted-foreground tracking-wider uppercase mb-1.5 block">Текст отзыва</label>
+                <textarea
+                  value={text}
+                  onChange={(e) => setText(e.target.value)}
+                  placeholder="Поделитесь впечатлениями об оборудовании..."
+                  required
+                  rows={4}
+                  className="w-full bg-iron border border-border px-4 py-3 text-sm text-foreground font-plex focus:outline-none focus:border-warning/50 transition-colors resize-none placeholder:text-muted-foreground/40"
+                />
+              </div>
+              <button
+                type="submit"
+                className="bg-warning text-black px-6 py-3 font-oswald font-bold tracking-wider uppercase text-sm hover:bg-amber-400 transition-colors"
+              >
+                Опубликовать отзыв
+              </button>
+            </form>
+          </>
+        )}
+      </div>
+    </div>
+  );
+}
+
 export default function ReviewsSection({ scrollTo }: ReviewsSectionProps) {
   const [activeReviewFilter, setActiveReviewFilter] = useState(0);
+  const [showModal, setShowModal] = useState(false);
+  const [allReviews, setAllReviews] = useState(REVIEWS);
+
+  const total = allReviews.length;
+  const avgRating = total > 0 ? (allReviews.reduce((sum, r) => sum + r.rating, 0) / total).toFixed(1) : "0.0";
+  const starCounts = [5, 4, 3, 2, 1].map((star) => allReviews.filter((r) => r.rating === star).length);
+  const starTotal = starCounts.reduce((a, b) => a + b, 0);
+
+  const handleNewReview = (r: { author: string; rating: number; text: string }) => {
+    const today = new Date();
+    const date = today.toLocaleDateString("ru-RU", { day: "numeric", month: "long", year: "numeric" });
+    setAllReviews((prev) => [{ ...r, company: "", date, images: [] }, ...prev]);
+  };
+
+  const filteredReviews = activeReviewFilter === 1
+    ? allReviews.filter((r) => r.rating === 5)
+    : activeReviewFilter === 2
+    ? allReviews.filter((r) => r.rating === 4)
+    : allReviews;
 
   return (
     <>
+      {showModal && <ReviewModal onClose={() => setShowModal(false)} onSubmit={(r) => { handleNewReview(r); }} />}
+
       {/* REVIEWS */}
       <section className="py-24 bg-iron steel-texture">
         <div className="max-w-7xl mx-auto px-4">
@@ -80,21 +185,19 @@ export default function ReviewsSection({ scrollTo }: ReviewsSectionProps) {
 
           <div className="flex flex-col md:flex-row items-start md:items-center gap-8 mb-12 bg-coal border border-border p-6">
             <div className="text-center px-6">
-              <div className="font-oswald text-7xl font-bold text-warning leading-none">4.9</div>
-              <StarRating rating={5} />
+              <div className="font-oswald text-7xl font-bold text-warning leading-none">{avgRating}</div>
+              <StarRating rating={Math.round(Number(avgRating))} />
               <div className="text-xs text-muted-foreground font-mono mt-2 tracking-wider">из 5.0</div>
             </div>
             <div className="w-px h-16 bg-border hidden md:block" />
             <div className="flex-1">
-              {[5, 4, 3, 2, 1].map((star) => {
-                const counts = [142, 18, 4, 1, 0];
-                const total = counts.reduce((a, b) => a + b, 0);
-                const count = counts[5 - star];
+              {[5, 4, 3, 2, 1].map((star, idx) => {
+                const count = starCounts[idx];
                 return (
                   <div key={star} className="flex items-center gap-3 mb-1.5">
                     <span className="text-warning text-xs w-3">{star}★</span>
                     <div className="flex-1 h-1.5 bg-steel/50">
-                      <div className="h-full bg-warning transition-all duration-500" style={{ width: `${(count / total) * 100}%` }} />
+                      <div className="h-full bg-warning transition-all duration-500" style={{ width: starTotal > 0 ? `${(count / starTotal) * 100}%` : "0%" }} />
                     </div>
                     <span className="font-mono text-xs text-muted-foreground w-6">{count}</span>
                   </div>
@@ -102,16 +205,19 @@ export default function ReviewsSection({ scrollTo }: ReviewsSectionProps) {
               })}
             </div>
             <div className="text-center px-4">
-              <div className="font-oswald text-3xl font-bold text-foreground">165</div>
+              <div className="font-oswald text-3xl font-bold text-foreground">{total}</div>
               <div className="text-xs text-muted-foreground font-mono mt-1 tracking-wider">ОТЗЫВОВ</div>
-              <button className="mt-4 bg-warning text-black px-4 py-2 text-xs font-oswald font-bold tracking-wider uppercase hover:bg-amber-400 transition-colors">
+              <button
+                onClick={() => setShowModal(true)}
+                className="mt-4 bg-warning text-black px-4 py-2 text-xs font-oswald font-bold tracking-wider uppercase hover:bg-amber-400 transition-colors"
+              >
                 Оставить отзыв
               </button>
             </div>
           </div>
 
           <div className="flex gap-2 mb-6 flex-wrap">
-            {["Все", "5 звёзд", "4 звезды", "Видео-отзывы"].map((f, i) => (
+            {["Все", "5 звёзд", "4 звезды"].map((f, i) => (
               <button
                 key={f}
                 onClick={() => setActiveReviewFilter(i)}
@@ -125,8 +231,8 @@ export default function ReviewsSection({ scrollTo }: ReviewsSectionProps) {
           </div>
 
           <div className="grid md:grid-cols-3 gap-5">
-            {REVIEWS.map((r) => (
-              <ReviewCard key={r.author} r={r} />
+            {filteredReviews.map((r, idx) => (
+              <ReviewCard key={idx} r={r} />
             ))}
           </div>
         </div>
