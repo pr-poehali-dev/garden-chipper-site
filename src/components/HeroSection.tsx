@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Icon from "@/components/ui/icon";
 import { PRODUCTS, PARTS, SectionLabel, SectionTitle, HERO_BG } from "@/components/shared";
@@ -132,6 +132,18 @@ function PartCard({ part, scrollTo }: { part: typeof import("@/components/shared
 }
 
 export default function HeroSection({ scrollTo }: HeroSectionProps) {
+  const [isMobile, setIsMobile] = useState(false);
+  const [catalogExpanded, setCatalogExpanded] = useState(false);
+
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 768);
+    check();
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
+  }, []);
+
+  const visibleProducts = isMobile && !catalogExpanded ? PRODUCTS.slice(0, 3) : PRODUCTS;
+
   return (
     <>
       {/* HERO */}
@@ -213,11 +225,29 @@ export default function HeroSection({ scrollTo }: HeroSectionProps) {
           <SectionLabel>Каталог оборудования</SectionLabel>
           <SectionTitle>Измельчители</SectionTitle>
           <div className="grid md:grid-cols-3 gap-6">
-            {PRODUCTS.map((p) => (
+            {visibleProducts.map((p) => (
               <ProductCard key={p.id} p={p} scrollTo={scrollTo} />
             ))}
           </div>
-          <div className="mt-8 text-center">
+          <div className="mt-8 text-center flex flex-col items-center gap-3">
+            {isMobile && !catalogExpanded && PRODUCTS.length > 3 && (
+              <button
+                onClick={() => setCatalogExpanded(true)}
+                className="w-full md:w-auto border border-warning text-warning px-8 py-3 font-oswald font-bold tracking-wider uppercase text-sm hover:bg-warning/10 transition-colors flex items-center justify-center gap-2"
+              >
+                <Icon name="ChevronDown" size={16} />
+                Показать все модели ({PRODUCTS.length - 3} ещё)
+              </button>
+            )}
+            {isMobile && catalogExpanded && (
+              <button
+                onClick={() => setCatalogExpanded(false)}
+                className="w-full md:w-auto border border-border text-muted-foreground px-8 py-3 font-oswald font-bold tracking-wider uppercase text-sm hover:bg-warning/10 transition-colors flex items-center justify-center gap-2"
+              >
+                <Icon name="ChevronUp" size={16} />
+                Свернуть
+              </button>
+            )}
             <button className="border border-warning/40 text-warning px-8 py-3 font-oswald font-bold tracking-wider uppercase text-sm hover:bg-warning/10 transition-colors">
               Весь каталог — 24 модели
             </button>
