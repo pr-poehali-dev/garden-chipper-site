@@ -194,8 +194,7 @@ export const REVIEWS = [
 ];
 
 export const WARRANTY_ITEMS = [
-  { period: "24 мес.", label: "Гарантия на оборудование", icon: "ShieldCheck" },
-  { period: "12 мес.", label: "Гарантия на запчасти", icon: "Shield" },
+  { period: "12 мес.", label: "Гарантия на оборудование", icon: "ShieldCheck" },
   { period: "48 ч", label: "Реакция сервиса", icon: "Clock" },
   { period: "10 лет", label: "Поставка запчастей", icon: "Package" },
 ];
