@@ -145,7 +145,7 @@ export default function HeroSection({ scrollTo }: HeroSectionProps) {
         <div className="absolute inset-0 bg-black/40" />
         <div className="absolute top-0 left-0 right-0 h-1 bg-warning" />
 
-        <div className="hidden md:flex absolute top-6 right-6 z-30 flex-col gap-2">
+        <div className="flex absolute top-6 right-6 z-30 flex-col gap-2">
           <a
             href="https://youtube.com/@vyatkalux"
             target="_blank"
@@ -185,26 +185,7 @@ export default function HeroSection({ scrollTo }: HeroSectionProps) {
               <span>ИП Сухоруков Д.А.</span>
             </div>
 
-            <div className="flex md:hidden gap-2 mb-8 animate-fade-in-up delay-300">
-              <a
-                href="https://youtube.com/@vyatkalux"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 bg-red-600 hover:bg-red-500 text-white font-oswald text-sm tracking-wider uppercase px-4 py-2.5 rounded transition-colors shadow-lg"
-              >
-                <Icon name="Youtube" size={18} />
-                YouTube
-              </a>
-              <a
-                href="https://rutube.ru/channel/27535132/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 bg-green-700 hover:bg-green-600 text-white font-oswald text-sm tracking-wider uppercase px-4 py-2.5 rounded transition-colors shadow-lg"
-              >
-                <Icon name="Play" size={18} />
-                Rutube
-              </a>
-            </div>
+
 
             <div className="animate-fade-in-up delay-400 mt-14 flex flex-wrap gap-8">
               {[
