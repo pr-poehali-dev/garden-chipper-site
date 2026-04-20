@@ -21,6 +21,7 @@ export const NAV_ITEMS = [
 export const PRODUCTS = [
   {
     id: 1,
+    slug: "rubitel-s",
     name: "Rubitel-S",
     desc: "Садовый дисковый измельчитель веток диаметром до 60 мм",
     power: "7 л.с.",
@@ -41,6 +42,7 @@ export const PRODUCTS = [
   },
   {
     id: 2,
+    slug: "rubitel-x",
     images: [
       "https://cdn.poehali.dev/projects/30589419-8040-421a-8f96-70e5f7c9160c/bucket/44fd17fc-c51a-4a33-9e17-1758fd755aad.JPG",
       "https://cdn.poehali.dev/projects/30589419-8040-421a-8f96-70e5f7c9160c/bucket/83cfac3d-1303-4c1d-ad4c-6ed158398c3e.JPG",
@@ -62,6 +64,7 @@ export const PRODUCTS = [
   },
   {
     id: 4,
+    slug: "rubitel-e5",
     name: "Rubitel-E5",
     desc: "Садовый дисковый измельчитель веток диаметром до 65 мм",
     power: "5.5 кВт",
@@ -78,6 +81,7 @@ export const PRODUCTS = [
   },
   {
     id: 3,
+    slug: "rubitel-e2",
     name: "Rubitel-E2",
     desc: "Садовый дисковый измельчитель веток диаметром до 50 мм",
     power: "2.2 кВт",

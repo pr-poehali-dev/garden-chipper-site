@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import Icon from "@/components/ui/icon";
 import { PRODUCTS, PARTS, SectionLabel, SectionTitle, HERO_BG } from "@/components/shared";
 
@@ -60,14 +61,22 @@ function ProductCard({ p, scrollTo }: { p: typeof import("@/components/shared").
             {p.videoUrl2.includes("youtube") ? "Смотреть видео на YouTube" : "Смотреть видео на Rutube"}
           </a>
         )}
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between gap-2">
           <div className="font-oswald text-xl font-bold text-foreground">{p.price}</div>
-          <button
-            onClick={() => scrollTo("contacts")}
-            className="bg-warning text-black px-4 py-2 text-xs font-oswald font-bold tracking-wider uppercase hover:bg-amber-400 transition-colors"
-          >
-            Заказать
-          </button>
+          <div className="flex gap-2">
+            <Link
+              to={`/product/${p.slug}`}
+              className="border border-warning/50 text-warning px-3 py-2 text-xs font-oswald font-bold tracking-wider uppercase hover:bg-warning/10 transition-colors"
+            >
+              Подробнее
+            </Link>
+            <button
+              onClick={() => scrollTo("contacts")}
+              className="bg-warning text-black px-4 py-2 text-xs font-oswald font-bold tracking-wider uppercase hover:bg-amber-400 transition-colors"
+            >
+              Заказать
+            </button>
+          </div>
         </div>
       </div>
     </div>
