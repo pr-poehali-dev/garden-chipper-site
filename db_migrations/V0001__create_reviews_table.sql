@@ -1,0 +1,7 @@
+CREATE TABLE IF NOT EXISTS t_p11111449_garden_chipper_site.reviews (
+  id SERIAL PRIMARY KEY,
+  author VARCHAR(100) NOT NULL,
+  rating INTEGER NOT NULL CHECK (rating BETWEEN 1 AND 5),
+  text TEXT NOT NULL,
+  created_at TIMESTAMP DEFAULT NOW()
+);

@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import React from "react";
 import Icon from "@/components/ui/icon";
 import {
   REVIEWS,
+  REVIEWS_API_URL,
   WARRANTY_ITEMS,
   NAV_ITEMS,
   StarRating,
@@ -156,12 +157,36 @@ export default function ReviewsSection({ scrollTo }: ReviewsSectionProps) {
   const [showModal, setShowModal] = useState(false);
   const [allReviews, setAllReviews] = useState(REVIEWS);
 
+  useEffect(() => {
+    fetch(REVIEWS_API_URL)
+      .then((r) => r.json())
+      .then((data) => {
+        if (data.reviews && data.reviews.length > 0) {
+          const dbReviews = data.reviews.map((r: { author: string; rating: number; text: string; date: string }) => ({
+            author: r.author,
+            rating: r.rating,
+            text: r.text,
+            company: "",
+            date: r.date,
+            images: [],
+          }));
+          setAllReviews([...dbReviews, ...REVIEWS]);
+        }
+      })
+      .catch(() => {});
+  }, []);
+
   const total = allReviews.length;
   const avgRating = total > 0 ? (allReviews.reduce((sum, r) => sum + r.rating, 0) / total).toFixed(1) : "0.0";
   const starCounts = [5, 4, 3, 2, 1].map((star) => allReviews.filter((r) => r.rating === star).length);
   const starTotal = starCounts.reduce((a, b) => a + b, 0);
 
-  const handleNewReview = (r: { author: string; rating: number; text: string }) => {
+  const handleNewReview = async (r: { author: string; rating: number; text: string }) => {
+    await fetch(REVIEWS_API_URL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(r),
+    }).catch(() => {});
     const today = new Date();
     const date = today.toLocaleDateString("ru-RU", { day: "numeric", month: "long", year: "numeric" });
     setAllReviews((prev) => [{ ...r, company: "", date, images: [] }, ...prev]);
