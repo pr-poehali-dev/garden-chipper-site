@@ -259,35 +259,7 @@ export default function HeroSection({ scrollTo }: HeroSectionProps) {
         </div>
       </section>
 
-      {/* CONSUMABLES */}
-      <section id="consumables" className="py-24 bg-coal">
-        <div className="max-w-7xl mx-auto px-4">
-          <SectionLabel>Регулярное обслуживание</SectionLabel>
-          <SectionTitle>Расходные<br />материалы</SectionTitle>
-          <div className="space-y-4">
-            {[
-              { name: "Смазки и масла (Shell, Mobil)", hint: "Для подшипников и приводов", price: "от 450 ₽/кг" },
-              { name: "Фильтры воздушные и масляные", hint: "Оригинальные и аналоги", price: "от 280 ₽/шт" },
-              { name: "Абразивные круги и диски", hint: "Для заточки ножей", price: "от 120 ₽/шт" },
-              { name: "Крепёж специальный (DIN, ГОСТ)", hint: "Болты, гайки, шпильки М12–М42", price: "от 15 ₽/шт" },
-              { name: "Средства защиты (СИЗ)", hint: "Перчатки, очки, беруши", price: "от 90 ₽" },
-            ].map((c) => (
-              <div key={c.name} className="flex items-center justify-between p-4 border border-border hover:border-warning/30 transition-colors bg-iron/40">
-                <div>
-                  <div className="font-oswald font-bold text-sm text-foreground">{c.name}</div>
-                  <div className="text-xs text-muted-foreground font-mono mt-0.5">{c.hint}</div>
-                </div>
-                <div className="text-right">
-                  <div className="font-mono text-sm text-warning font-bold">{c.price}</div>
-                  <button onClick={() => scrollTo("contacts")} className="text-xs text-muted-foreground hover:text-warning transition-colors mt-0.5">
-                    Заказать →
-                  </button>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+
     </>
   );
 }
