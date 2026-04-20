@@ -168,7 +168,10 @@ export default function HeroSection({ scrollTo }: HeroSectionProps) {
               <span>Садовые измельчители веток,</span>
               <span>рубительные машины,</span>
               <span>молотковые дробилки.</span>
-              <span>Надёжность, качество, неприхотливость.</span>
+              <span className="flex items-center gap-1.5 font-oswald text-2xl font-bold text-warning tracking-widest">
+                Rubitel
+                <span className="text-xs border border-warning rounded-full w-4 h-4 flex items-center justify-center leading-none font-bold text-warning" style={{fontSize: '9px'}}>R</span>
+              </span>
               <span>Производство Россия. ИП Сухоруков Д.А.</span>
             </div>
 
