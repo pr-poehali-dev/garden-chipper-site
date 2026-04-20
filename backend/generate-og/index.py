@@ -51,9 +51,6 @@ def handler(event: dict, context) -> dict:
     draw.text((text_x, 150), "RUBITEL", font=font_title, fill=white)
     draw.text((text_x, 360), "INDUSTRIAL EQUIPMENT", font=font_sub, fill=orange)
 
-    # Оранжевая полоса снизу
-    draw.rectangle([(0, H - 12), (W, H)], fill=orange)
-
     buf = BytesIO()
     img.save(buf, format='JPEG', quality=95)
     buf.seek(0)
@@ -65,7 +62,7 @@ def handler(event: dict, context) -> dict:
         aws_secret_access_key=os.environ['AWS_SECRET_ACCESS_KEY']
     )
     import json
-    key = 'og/rubitel-og-v6.jpg'
+    key = 'og/rubitel-og-v7.jpg'
     s3.put_object(Bucket='files', Key=key, Body=buf.read(), ContentType='image/jpeg')
 
     cdn_url = f"https://cdn.poehali.dev/projects/{os.environ['AWS_ACCESS_KEY_ID']}/bucket/{key}"
