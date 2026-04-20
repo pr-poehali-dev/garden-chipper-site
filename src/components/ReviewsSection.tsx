@@ -192,11 +192,16 @@ export default function ReviewsSection({ scrollTo }: ReviewsSectionProps) {
     setAllReviews((prev) => [{ ...r, company: "", date, images: [] }, ...prev]);
   };
 
+  const [showAll, setShowAll] = useState(false);
+  const VISIBLE = 3;
+
   const filteredReviews = activeReviewFilter === 1
     ? allReviews.filter((r) => r.rating === 5)
     : activeReviewFilter === 2
     ? allReviews.filter((r) => r.rating === 4)
     : allReviews;
+
+  const visibleReviews = showAll ? filteredReviews : filteredReviews.slice(0, VISIBLE);
 
   return (
     <>
@@ -256,10 +261,21 @@ export default function ReviewsSection({ scrollTo }: ReviewsSectionProps) {
           </div>
 
           <div className="grid md:grid-cols-3 gap-5">
-            {filteredReviews.map((r, idx) => (
+            {visibleReviews.map((r, idx) => (
               <ReviewCard key={idx} r={r} />
             ))}
           </div>
+
+          {filteredReviews.length > VISIBLE && (
+            <div className="mt-8 text-center">
+              <button
+                onClick={() => setShowAll(!showAll)}
+                className="border border-warning/40 text-warning px-8 py-3 font-oswald font-bold tracking-wider uppercase text-sm hover:bg-warning/10 transition-colors"
+              >
+                {showAll ? "Свернуть" : `Показать все отзывы (${filteredReviews.length})`}
+              </button>
+            </div>
+          )}
         </div>
       </section>
 
