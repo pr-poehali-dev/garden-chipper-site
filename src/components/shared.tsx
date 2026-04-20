@@ -51,7 +51,7 @@ export const PRODUCTS = [
     ],
     videoUrl: "https://rutube.ru/video/3c9950f4b27c254ffd9da94619d50376/",
     videoUrl2: "https://youtube.com/watch?v=O7aN9K8qgww",
-    name: "RUBITEL-X",
+    name: "Rubitel-X",
     desc: "Измельчитель веток диаметром до 100 мм",
     power: "21 л.с.",
     capacity: "до 1.5 м³/ч",
@@ -62,7 +62,7 @@ export const PRODUCTS = [
   },
   {
     id: 4,
-    name: "RUBITEL-E5",
+    name: "Rubitel-E5",
     desc: "Садовый дисковый измельчитель веток диаметром до 65 мм",
     power: "5.5 кВт",
     capacity: "до 0.7 м³/ч",
@@ -78,7 +78,7 @@ export const PRODUCTS = [
   },
   {
     id: 3,
-    name: "RUBITEL-E2",
+    name: "Rubitel-E2",
     desc: "Садовый дисковый измельчитель веток диаметром до 60 мм",
     power: "2.2 кВт",
     capacity: "до 0.5 м³/ч",
