@@ -235,18 +235,7 @@ export default function HeroSection({ scrollTo }: HeroSectionProps) {
               <PartCard key={part.name} part={part} scrollTo={scrollTo} />
             ))}
           </div>
-          <div className="mt-10 bg-coal border border-warning/20 p-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
-            <div>
-              <div className="font-oswald text-lg font-bold text-foreground">Не нашли нужную деталь?</div>
-              <div className="text-sm text-muted-foreground font-plex mt-1">Закажем под артикул или пришлите фото — подберём аналог в течение часа</div>
-            </div>
-            <button
-              onClick={() => scrollTo("contacts")}
-              className="flex-shrink-0 bg-warning text-black px-6 py-3 font-oswald font-bold tracking-wider uppercase text-sm hover:bg-amber-400 transition-colors"
-            >
-              Запросить деталь
-            </button>
-          </div>
+
         </div>
       </section>
 
