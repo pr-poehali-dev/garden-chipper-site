@@ -42,9 +42,43 @@ export default function ProductPage() {
     }
     canonical.href = `https://rubitel.ru/product/${product.slug}`;
 
+    const priceNum = product.price.replace(/\D/g, "");
+    const jsonLd = {
+      "@context": "https://schema.org",
+      "@type": "Product",
+      "name": product.name,
+      "description": product.seoDescription,
+      "image": product.images ?? [],
+      "brand": { "@type": "Brand", "name": "RUBITEL" },
+      "offers": {
+        "@type": "Offer",
+        "url": `https://rubitel.ru/product/${product.slug}`,
+        "priceCurrency": "RUB",
+        "price": priceNum,
+        "priceValidUntil": "2027-01-01",
+        "availability": "https://schema.org/InStock",
+        "seller": { "@type": "Organization", "name": "RUBITEL" }
+      },
+      "additionalProperty": [
+        { "@type": "PropertyValue", "name": "Мощность", "value": product.power },
+        { "@type": "PropertyValue", "name": "Производительность", "value": product.capacity },
+        { "@type": "PropertyValue", "name": "Масса", "value": product.weight },
+      ]
+    };
+
+    let ldScript = document.querySelector<HTMLScriptElement>("script[data-product-ld]");
+    if (!ldScript) {
+      ldScript = document.createElement("script");
+      ldScript.type = "application/ld+json";
+      ldScript.setAttribute("data-product-ld", "true");
+      document.head.appendChild(ldScript);
+    }
+    ldScript.textContent = JSON.stringify(jsonLd);
+
     return () => {
       document.title = prevTitle;
       if (canonical) canonical.href = prevCanonical;
+      ldScript?.remove();
     };
   }, [product]);
 
