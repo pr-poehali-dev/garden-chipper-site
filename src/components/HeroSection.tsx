@@ -164,9 +164,11 @@ export default function HeroSection({ scrollTo }: HeroSectionProps) {
               <span className="font-mono text-xs tracking-[0.3em] text-warning uppercase">ПРОМЫШЛЕННОЕ ОБОРУДОВАНИЕ</span>
             </div>
 
-            <p className="animate-fade-in-up delay-200 text-chrome/80 text-lg leading-relaxed mb-6 max-w-lg font-plex">
-              Садовые измельчители веток, рубительные машины, молотковые дробилки. Надёжность, качество, неприхотливость. Производство Россия. ИП Сухоруков Д.А.
-            </p>
+            <div className="animate-fade-in-up delay-200 text-chrome/80 text-lg leading-relaxed mb-6 max-w-lg font-plex flex flex-col gap-1">
+              <span>Садовые измельчители веток, рубительные машины, молотковые дробилки.</span>
+              <span>Надёжность, качество, неприхотливость.</span>
+              <span>Производство Россия. ИП Сухоруков Д.А.</span>
+            </div>
 
             <div className="flex md:hidden gap-2 mb-8 animate-fade-in-up delay-300">
               <a
