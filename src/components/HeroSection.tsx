@@ -242,9 +242,7 @@ export default function HeroSection({ scrollTo }: HeroSectionProps) {
                 Свернуть
               </button>
             )}
-            <button className="border border-warning/40 text-warning px-8 py-3 font-oswald font-bold tracking-wider uppercase text-sm hover:bg-warning/10 transition-colors">
-              Весь каталог — 24 модели
-            </button>
+
           </div>
         </div>
       </section>
