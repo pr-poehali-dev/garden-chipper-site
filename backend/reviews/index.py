@@ -31,7 +31,7 @@ def handler(event: dict, context) -> dict:
     if method == "GET":
         conn = get_conn()
         rows = conn.run(
-            f"SELECT id, author, rating, text, created_at FROM {SCHEMA}.reviews ORDER BY created_at DESC"
+            f"SELECT id, author, rating, text, created_at, images FROM {SCHEMA}.reviews ORDER BY created_at DESC"
         )
         conn.close()
         reviews = [
@@ -41,6 +41,7 @@ def handler(event: dict, context) -> dict:
                 "rating": r[2],
                 "text": r[3],
                 "date": r[4].strftime("%-d %B %Y") if r[4] else "",
+                "images": list(r[5]) if r[5] else [],
             }
             for r in rows
         ]

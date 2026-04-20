@@ -162,13 +162,13 @@ export default function ReviewsSection({ scrollTo }: ReviewsSectionProps) {
       .then((r) => r.json())
       .then((data) => {
         if (data.reviews && data.reviews.length > 0) {
-          const dbReviews = data.reviews.map((r: { author: string; rating: number; text: string; date: string }) => ({
+          const dbReviews = data.reviews.map((r: { author: string; rating: number; text: string; date: string; images?: string[] }) => ({
             author: r.author,
             rating: r.rating,
             text: r.text,
             company: "",
             date: r.date,
-            images: [],
+            images: r.images || [],
           }));
           setAllReviews([...dbReviews, ...REVIEWS]);
         }
