@@ -44,7 +44,10 @@ export default function Index() {
           <div className="flex items-center gap-3 cursor-pointer" onClick={() => scrollTo("home")}>
             <img src={LOGO_URL} alt="Rubitel" className="w-9 h-9 object-contain" style={{ filter: LOGO_FILTER }} />
             <div>
-              <div className="font-oswald text-lg font-bold text-foreground tracking-wider leading-none">RUBITEL</div>
+              <div className="font-oswald text-lg font-bold text-foreground tracking-wider leading-none flex items-center gap-1">
+                Rubitel
+                <span className="border border-foreground rounded-full w-3.5 h-3.5 flex items-center justify-center leading-none font-bold text-foreground" style={{fontSize: '8px'}}>R</span>
+              </div>
               <div className="text-[10px] text-muted-foreground font-mono tracking-[0.2em]">INDUSTRIAL EQUIPMENT</div>
             </div>
           </div>
